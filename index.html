@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Kanban Moderno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container py-5">
+    <div class="kanban-container mx-auto">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Mini Kanban</h1>
+        <button class="btn btn-secondary" onclick="toggleTheme()">Tema</button>
+      </div>
+
+      <div class="row g-2 mb-3">
+        <div class="col-md-6">
+          <input type="text" id="taskInput" class="form-control" placeholder="Digite uma tarefa...">
+        </div>
+        <div class="col-md-3">
+          <select id="taskStatus" class="form-select">
+            <option value="fazer">Fazer</option>
+            <option value="fazendo">Fazendo</option>
+            <option value="feito">Feito</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-success w-100" onclick="addTask()">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <input type="text" id="filterInput" class="form-control" placeholder="Filtrar tarefas..." oninput="renderTasks()">
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <h5 class="text-center">Fazer <span id="fazerCount" class="badge bg-primary"></span></h5>
+          <ul id="fazerList" class="list-unstyled column"></ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-center">Fazendo <span id="fazendoCount" class="badge bg-warning text-dark"></span></h5>
+          <ul id="fazendoList" class="list-unstyled column"></ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-center">Feito <span id="feitoCount" class="badge bg-success"></span></h5>
+          <ul id="feitoList" class="list-unstyled column"></ul>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <button class="btn btn-danger w-100" onclick="clearAll()">Limpar Tudo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
